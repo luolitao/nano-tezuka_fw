@@ -26,7 +26,7 @@ BR2_TARGET_GENERIC_ROOT_PASSWD="analog"
 BR2_TARGET_GENERIC_GETTY_PORT="ttyPS0"
 BR2_LINUX_KERNEL=y
 BR2_LINUX_KERNEL_CUSTOM_TARBALL=y
-BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="https://github.com/analogdevicesinc/linux/archive/refs/tags/2021_r2_release.tar.gz"
+BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="https://github.com/analogdevicesinc/linux/archive/refs/tags/2023_r2_p1.tar.gz"
 #BR2_LINUX_KERNEL_DEFCONFIG="zynq_pluto"
 BR2_LINUX_KERNEL_USE_CUSTOM_CONFIG=y
 
