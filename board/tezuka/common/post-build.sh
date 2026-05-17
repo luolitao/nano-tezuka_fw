@@ -70,3 +70,18 @@ ln -sf ../../wpa_supplicant/ifupdown.sh "${TARGET_DIR}/etc/network/if-pre-up.d/w
 ln -sf ../../wpa_supplicant/ifupdown.sh "${TARGET_DIR}/etc/network/if-post-down.d/wpasupplicant"
 
 ln -sf device_reboot "${TARGET_DIR}/usr/sbin/pluto_reboot"
+
+#!/bin/bash
+# board/tezuka/common/post-build.sh
+
+# 1. 强制将 root 的默认 Shell 改为 /bin/sh（Busybox）
+sed -i 's|/bin/bash|/bin/sh|g' "${TARGET_DIR}/etc/passwd"
+
+# 2. 确保 /bin/sh 指向 busybox（防止符号链断裂）
+if [ ! -L "${TARGET_DIR}/bin/sh" ]; then
+    rm -f "${TARGET_DIR}/bin/sh"
+    ln -sf busybox "${TARGET_DIR}/bin/sh"
+fi
+
+# 3. (可选) 清理缺失的模块依赖报错
+rm -f "${TARGET_DIR}/lib/modules/${BR2_LINUX_KERNEL_VERSION}/modules.dep" 2>/dev/null
