@@ -70,7 +70,7 @@
 			type = "ramdisk";
 			arch = "arm";
 			os = "linux";
-			compression = "none";
+			compression = "xz";
 			hash@1 {
 				algo = "md5";
 			};
