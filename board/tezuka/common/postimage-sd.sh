@@ -48,7 +48,7 @@ rm "$SDIMGDIR/boot.bif"
 cp "$BIN_DIR/system_top.bit.bin" "$SDIMGDIR/system_top.bin"
 
 # uboot does not decompress the ramdisk — kernel handles it
-mkimage -A arm -T ramdisk -C none -d "$BIN_DIR/rootfs.cpio.xz" "$SDIMGDIR/uramdisk.image.xz"
+mkimage -A arm -T ramdisk -C none -d "$BIN_DIR/rootfs.cpio.gz" "$SDIMGDIR/uramdisk.image.gz"
 mkimage -A arm -O linux -T kernel -C lzma -a 0x8000 -e 0x8000 \
 	-n "Linux kernel" -d "$BIN_DIR/Image.lzma" "$SDIMGDIR/uImage"
 
