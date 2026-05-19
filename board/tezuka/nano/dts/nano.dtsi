@@ -45,35 +45,7 @@
 		drv-vbus;
 	};
 	
-	reserved-memory {
-                #address-cells = <1>;
-                #size-cells = <1>;
-                ranges;
 
-                maia_sdr_spectrometer: maia_sdr_spectrometer@16000000 {
-                        no-map;
-                        reg = <0x16000000 0x40000>;
-                        label = "maia_sdr_spectrometer";
-                };
-
-                maia_sdr_recording: maia_sdr_recording@6000000 {
-                        no-map;
-                        reg = <0x6000000 0x10000000>;
-                        label = "maia_sdr_recording";
-                };
-        };
-
-	maia-sdr-recording {
-		compatible = "maia-sdr,recording";
-		memory-region = <&maia_sdr_recording>;
-	};
-
-	maia-sdr-spectrometer {
-		compatible = "maia-sdr,rxbuffer";
-		memory-region = <&maia_sdr_spectrometer>;
-		buffer-size = <0x8000>;
-	};
-};
 
 
 
