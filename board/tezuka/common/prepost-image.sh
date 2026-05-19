@@ -27,6 +27,7 @@ dd if="$BIN_DIR/zImage" bs=1 skip="$skip" | gunzip > "$BIN_DIR/Image" 2>/dev/nul
 lzma -z -k -f "$BIN_DIR/Image"
 
 # Convert FPGA bitstream to raw binary
+cp "$BOARD_DIR/bitstream/maia-iio/system_top.bit" "$BIN_DIR"
 echo "img : {$BIN_DIR/system_top.bit }" > "$BIN_DIR/system.bif"
 "$BOOTGEN" -image "$BIN_DIR/system.bif" -process_bitstream bin -arch zynq -w -o i "$BIN_DIR/system_top.bit.bin"
 
