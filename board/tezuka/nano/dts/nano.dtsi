@@ -44,8 +44,7 @@
 		view-port = <0x0170>;
 		drv-vbus;
 	};
-	
-
+};
 
 
 
